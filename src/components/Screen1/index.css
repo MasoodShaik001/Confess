@@ -1,0 +1,22 @@
+h2 {
+    color: white;
+}
+
+form {
+    border: 2px solid rgb(255, 255, 255);
+    padding: 50px;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+button {
+    padding: 12px 24px;       /* Increase inner spacing */
+    font-size: 16px;          /* Increase text size */
+    width: 35%;              /* Optional: make it stretch across form */
+    background-color: rgb(255, 255, 255); /* Optional: color styling */
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

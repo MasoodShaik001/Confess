@@ -1,22 +1,42 @@
-// Screen1.js
+import React, { useState } from "react";
+import './index.css'
+import { useNavigate } from "react-router-dom";
 
-import React from 'react';
+export default function Screen1() {
+  const navigate=useNavigate();
 
-const Screen1 = () => {
-  const backgroundStyle = {
-    backgroundColor: 'darkblue',
-    height: '100vh', // 100% of the viewport height
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  };
+  const [userName,setUserName]=useState("");
+  const [password,setPassword]=useState("")
 
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+
+if(userName.trim()===""){
+  alert("Username is required");
+  return;
+}
+if(password.length<6){
+  alert("Password must be atleast 6 characters");
+  return;
+}
+
+    navigate("/home")
+  }
   return (
-    <div style={backgroundStyle}>
-      {/* Add your content inside this div if needed */}
-      <h1 style={{ color: 'white' }}>Hello, this is a dark blue background!</h1>
-    </div>
-  );
-};
+    <>
 
-export default Screen1;
+      <div>
+        <h2>Signup</h2>
+        <form onSubmit={handleSubmit}>
+         <label>Username: </label>
+         <input type="text"  placeholder="enter username" value={userName} onChange={(e)=>setUserName(e.target.value) } /> <br/><br/>
+         <label>Password: </label>
+         <input type="password"  placeholder="enter password" value={password} onChange={(e)=>setPassword(e.target.value)} /> <br/><br/>
+         <label>Mobie No: </label>
+         <input type="tel" id="mobile"  pattern="[0-9]{10}" maxlength="10" placeholder="enter mobile number" required/> <br/><br/><br/>
+         <button type="submit">Submit</button>
+        </form>
+      </div>
+    </>
+  )
+}
